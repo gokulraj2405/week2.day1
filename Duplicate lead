@@ -1,0 +1,83 @@
+package week2.Day1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DuplicateLead {
+
+	public static void main(String[] args) {
+
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("demosalesManager");
+
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("crmsfa");
+
+		WebElement login = driver.findElement(By.className("decorativeSubmit"));
+		login.click();
+		
+		WebElement clickcrm = driver.findElement(By.partialLinkText("CRM"));
+		clickcrm.click();
+
+		WebElement clicklead = driver.findElement(By.linkText("Leads"));
+		clicklead.click();
+		
+		WebElement createlead = driver.findElement(By.linkText("Create Lead"));
+		createlead.click();
+		
+		WebElement companyname = driver.findElement(By.id("createLeadForm_companyName"));
+		companyname.sendKeys("Rajan cycle");
+
+		WebElement firstname = driver.findElement(By.id("createLeadForm_firstName"));
+		firstname.sendKeys("gokul raj");
+
+		WebElement lastname = driver.findElement(By.id("createLeadForm_lastName"));
+		lastname.sendKeys("G");
+
+		WebElement loaclfirstname = driver.findElement(By.id("createLeadForm_firstNameLocal"));
+		loaclfirstname.sendKeys("gokul raj");
+
+		WebElement locallastname = driver.findElement(By.id("createLeadForm_lastNameLocal"));
+		locallastname.sendKeys("G");
+
+		WebElement department = driver.findElement(By.id("createLeadForm_departmentName"));
+		department.sendKeys("EEE");
+
+		WebElement description = driver.findElement(By.name("description"));
+		description.sendKeys("new lead");
+
+		WebElement mailid = driver.findElement(By.id("createLeadForm_primaryEmail"));
+		mailid.sendKeys("gokulrajgovindaraj4@gmail.com");
+
+		WebElement submitlead = driver.findElement(By.name("submitButton"));
+		submitlead.click();
+		
+		//duplicate lead
+
+		WebElement duplicatelead = driver.findElement(By.partialLinkText("Duplicate Lead"));
+		duplicatelead.click();
+
+		WebElement clearcompanyname = driver.findElement(By.xpath("//*[@id=\'createLeadForm_companyName\']"));
+		clearcompanyname.clear();
+
+		WebElement duplicatecompanyname = driver.findElement(By.xpath("//*[@id=\'createLeadForm_companyName\']"));
+		duplicatecompanyname.sendKeys("GK Plots");
+
+		WebElement clearfirstname = driver.findElement(By.xpath("//*[@id=\'createLeadForm_firstName\']"));
+		clearfirstname.clear();
+
+		WebElement duplicatefirstname = driver.findElement(By.xpath("//*[@id=\'createLeadForm_firstName\']"));
+		duplicatefirstname.sendKeys("govindaraj");
+
+		WebElement finalsubmit = driver.findElement(By.name("submitButton"));
+		finalsubmit.click();
+
+	}
+
+}
