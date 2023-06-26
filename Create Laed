@@ -1,31 +1,60 @@
 package week2.Day1;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CreateLead {
+public class DuplicateLead {
 
 	public static void main(String[] args) {
-		ChromeDriver driver=new ChromeDriver();
+
+		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://leaftaps.com/opentaps/control/login");
-		driver.findElement(By.id("username")).sendKeys("demosalesManager");
-		driver.findElement(By.id("password")).sendKeys("crmsfa");
-		driver.findElement(By.className("decorativeSubmit")).click();
-		driver.findElement(By.partialLinkText("CRM")).click();
-		driver.findElement(By.linkText("Leads")).click();
-		driver.findElement(By.linkText("Create Lead")).click();
-		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("Rajan cycle");
-		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("gokul raj");
-		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("G");
-		driver.findElement(By.id("createLeadForm_firstNameLocal")).sendKeys("gokul raj");
-		driver.findElement(By.id("createLeadForm_lastNameLocal")).sendKeys("G");
-		driver.findElement(By.id("createLeadForm_departmentName")).sendKeys("EEE");
-		driver.findElement(By.name("description")).sendKeys("new lead");
-		driver.findElement(By.id("createLeadForm_primaryEmail")).sendKeys("gokulrajgovindaraj4@gmail.com");
-		driver.findElement(By.name("submitButton")).click();
+
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("demosalesManager");
+
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("crmsfa");
+
+		WebElement login = driver.findElement(By.className("decorativeSubmit"));
+		login.click();
 		
+		WebElement clickcrm = driver.findElement(By.partialLinkText("CRM"));
+		clickcrm.click();
 
-	}
+		WebElement clicklead = driver.findElement(By.linkText("Leads"));
+		clicklead.click();
+		
+		WebElement createlead = driver.findElement(By.linkText("Create Lead"));
+		createlead.click();
+		
+		WebElement companyname = driver.findElement(By.id("createLeadForm_companyName"));
+		companyname.sendKeys("Rajan cycle");
 
-}
+		WebElement firstname = driver.findElement(By.id("createLeadForm_firstName"));
+		firstname.sendKeys("gokul raj");
+
+		WebElement lastname = driver.findElement(By.id("createLeadForm_lastName"));
+		lastname.sendKeys("G");
+
+		WebElement loaclfirstname = driver.findElement(By.id("createLeadForm_firstNameLocal"));
+		loaclfirstname.sendKeys("gokul raj");
+
+		WebElement locallastname = driver.findElement(By.id("createLeadForm_lastNameLocal"));
+		locallastname.sendKeys("G");
+
+		WebElement department = driver.findElement(By.id("createLeadForm_departmentName"));
+		department.sendKeys("EEE");
+
+		WebElement description = driver.findElement(By.name("description"));
+		description.sendKeys("new lead");
+
+		WebElement mailid = driver.findElement(By.id("createLeadForm_primaryEmail"));
+		mailid.sendKeys("gokulrajgovindaraj4@gmail.com");
+
+		WebElement submitlead = driver.findElement(By.name("submitButton"));
+		submitlead.click();
+		
