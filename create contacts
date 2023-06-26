@@ -1,0 +1,47 @@
+package week2.Day1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateContacts {
+
+	public static void main(String[] args) {
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://leaftaps.com/opentaps/control/login");
+
+		WebElement username = driver.findElement(By.id("username"));
+		username.sendKeys("demosalesManager");
+
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("crmsfa");
+
+		WebElement login = driver.findElement(By.className("decorativeSubmit"));
+		login.click();
+
+		WebElement clickcrm = driver.findElement(By.partialLinkText("CRM"));
+		clickcrm.click();
+
+		WebElement contacts = driver.findElement(By.partialLinkText("Contacts"));
+		contacts.click();
+
+		WebElement firstname = driver.findElement(By.name("firstName"));
+	    firstname.sendKeys("GokulRaj");
+	    
+
+		WebElement lastname = driver.findElement(By.xpath("//*[@id=\'ext-gen375\']"));
+		lastname.sendKeys("G");
+
+		WebElement createcontact = driver.findElement(By.xpath("//*[@id=\'ext-gen419\']"));
+		createcontact.click();
+		
+		
+		
+
+		System.out.println(driver.getTitle());
+		driver.quit();
+
+	}
+
+}
